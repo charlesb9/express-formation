@@ -1,5 +1,4 @@
-import { model, Schema } from "mongoose";
-
+import { model, Schema } from 'mongoose'
 
 /**
  * Class Post
@@ -7,9 +6,12 @@ import { model, Schema } from "mongoose";
  * @property {string} title.required - post title
  * @property {string} content - content post
  */
-const schema = new Schema({
-	title: { type: String},
-	content: { type: String}
-}, { timestamps : true })
+const schema = new Schema(
+  {
+    title: { type: String },
+    content: { type: String },
+  },
+  { timestamps: true }
+)
 
 export const Post = model('Post', schema)

@@ -21,6 +21,4 @@ router.post('/login', login)
  */
 router.post('/register', register)
 
-export {
-	router as routerAuth
-}
+export { router as routerAuth }

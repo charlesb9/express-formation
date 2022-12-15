@@ -1,6 +1,12 @@
 import { Router } from 'express'
 import { auth } from '../middlewares/auth.middleware.js'
-import { createPost, getPosts, getSinglePost, removePost, updatePost } from './post.controller.js'
+import {
+  createPost,
+  getPosts,
+  getSinglePost,
+  removePost,
+  updatePost,
+} from './post.controller.js'
 
 const router = Router()
 
@@ -29,7 +35,7 @@ router.post('/', auth, createPost)
  * @param { string } id.path.required - id of Post
  * @return { object } 200 - success response
  */
-router.get('/:id', getSinglePost )
+router.get('/:id', getSinglePost)
 
 /**
  * PUT /api/post/{id}
@@ -51,6 +57,4 @@ router.put('/:id', auth, updatePost)
  */
 router.delete('/:id', auth, removePost)
 
-export {
-	router as routerPost
-}
+export { router as routerPost }

@@ -15,7 +15,7 @@ export const swaggerOptions = {
     BearerAuth: {
       type: 'http',
       scheme: 'bearer',
-      bearerFormat: 'JWT' 
+      bearerFormat: 'JWT',
     },
   },
   baseDir: __dirname,

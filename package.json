@@ -19,5 +19,8 @@
     "express-jsdoc-swagger": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.8.0"
+  },
+  "devDependencies": {
+    "prettier": "2.8.1"
   }
 }
