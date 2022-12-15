@@ -4,20 +4,20 @@ import { login, register } from './user.controller.js'
 const router = Router()
 
 /**
- * POST /auth/login
+ * POST /api/auth/login
  * @summary login user
- * @param {string} email.required - Email
- * @param {string} password.required - Password
- * @return { object } 200 - success response 
+ * @tags Auth
+ * @param { User } request.body.required - User
+ * @return { object } 200 - success response
  */
 router.post('/login', login)
 
 /**
- * POST /auth/register
+ * POST /api/auth/register
  * @summary register user
- * @param {string} email.required - Email
- * @param {string} password.required - Password
- * @return { object } 201 - success response 
+ * @tags Auth
+ * @param { User } request.body.required - User
+ * @return { object } 201 - success response
  */
 router.post('/register', register)
 

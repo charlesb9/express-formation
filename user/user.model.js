@@ -1,4 +1,5 @@
-import { model, Schema } from "mongoose";
+import { isEmail } from "../middlewares/email.validator.js"
+import { model, Schema } from "mongoose"
 
 /**
  * Class User
@@ -7,7 +8,7 @@ import { model, Schema } from "mongoose";
  * @property {string} password.required - password
  */
 const schema = new Schema({
-	email: {type: String, unique: true, trim: true, lowercase: true, validate: [null, "Veuillez vérifier le format de votre adresse email"]},
+	email: {type: String, unique: true, trim: true, lowercase: true, validate: [isEmail, "Veuillez vérifier le format de votre adresse email"]},
 	password: {type: String}
 })
 
