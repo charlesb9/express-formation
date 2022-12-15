@@ -12,6 +12,7 @@ const getAll = async (req, res) => {
 const getSingle = async (req, res) => {
 	try {
 		const { id } = req.params
+		console.log(id)
 		const post = await Post.findOne({_id : id})
 		res.status(200).json(post)
 	} catch (err) {

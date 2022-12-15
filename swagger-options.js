@@ -27,4 +27,4 @@ export const swaggerOptions = {
   notRequiredAsNullable: false,
   swaggerUiOptions: {},
   multiple: true,
-};
+}
