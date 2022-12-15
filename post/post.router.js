@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { createPost, getPosts, getSinglePost } from './post.controller.js'
+import { createPost, getPosts, getSinglePost, removePost, updatePost } from './post.controller.js'
 
 const router = Router()
 
@@ -33,22 +33,19 @@ router.get('/:id', getSinglePost )
  * PUT /api/post/{id}
  * @summary Update one Post
  * @tags Post
+ * @param { string } id.path.required - id of Post
  * @param { Post } request.body.required - Post
  * @return { object } 201 - success response
  */
-router.put('/:id', (req, res) => {
-	const { id } = req.params
-	res.send('route pour récuperer le post ' + id )
-})
+router.put('/:id', updatePost)
 
 /**
  * DELETE /api/post/{id}
  * @summary Delete One Post
+ * @param { string } id.path.required - id of Post
  * @tags Post
  */
-router.delete('/:id', (req, res) => {
-	res.send('route pour suppreimer un post')
-})
+router.delete('/:id', removePost)
 
 export {
 	router as routerPost

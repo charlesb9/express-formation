@@ -1,4 +1,5 @@
 import express from 'express'
+import cors from "cors"
 import mongoose from 'mongoose'
 import { routerApi } from './routers/api.router.js'
 import config from './config.js'
@@ -13,6 +14,13 @@ mongoose.connect(`mongodb+srv://${config.db.user}:${config.db.password}@${config
 const app = express()
 
 app.use(express.json())
+
+app.use(cors({
+	"origin": '*',
+	"methods": "GET, PUT, POST, DELETE",
+	"preflightContinue": false,
+	"optionsSuccessStatus": 200,
+}))
 
 expressJsDocSwagger(app)(swaggerOptions)
 
