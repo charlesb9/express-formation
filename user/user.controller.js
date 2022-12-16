@@ -8,7 +8,7 @@ export const login = async (req, res) => {
     const { body } = req
     const user = await User.findOne({ email: body.email })
     if (!user) {
-      res.status(404).json({ message: "L'utilisateur n'existe pas" })
+      res.status(404).json({ message: 'L\'utilisateur n\'existe pas' })
     }
     if (await bcrypt.compare(body.password, user.password)) {
       if (config.secret) {

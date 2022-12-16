@@ -6,6 +6,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node --watch server.js",
+    "prettier:check": "npx prettier --check .",
+    "prettier:write": "npx prettier --write .",
+    "eslint:check": "npx eslint .",
+    "eslint:write": "npx eslint --fix .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -21,6 +25,7 @@
     "mongoose": "^6.8.0"
   },
   "devDependencies": {
+    "eslint": "^8.29.0",
     "prettier": "2.8.1"
   }
 }
