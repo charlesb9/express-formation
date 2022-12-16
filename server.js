@@ -5,6 +5,7 @@ import { routerApi } from './routers/api.router.js'
 import config from './config.js'
 import { swaggerOptions } from './swagger-options.js'
 import expressJsDocSwagger from 'express-jsdoc-swagger'
+import morgan from 'morgan'
 
 try {
   mongoose.set('strictQuery', true)
@@ -17,6 +18,15 @@ try {
 }
 
 const app = express()
+
+
+if (config.environment !== 'test') {
+  const logger = morgan('tiny')
+  morgan(':method :url :status :res[content-length] - :response-time ms')
+  app.use(logger)
+}
+
+
 
 app.use(express.json())
 
