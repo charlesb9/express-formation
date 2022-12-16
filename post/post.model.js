@@ -1,4 +1,4 @@
-import { model, Schema } from 'mongoose'
+import { model, Schema } from 'mongoose';
 
 /**
  * Class Post
@@ -12,6 +12,6 @@ const schema = new Schema(
     content: { type: String },
   },
   { timestamps: true }
-)
+);
 
-export const Post = model('Post', schema)
+export const Post = model('Post', schema);

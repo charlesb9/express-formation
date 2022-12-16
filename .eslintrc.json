@@ -9,9 +9,9 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "rules": {        
+  "rules": {
     "semi": ["off", "always"],
     "quotes": ["error", "single"],
     "eqeqeq": ["warn", "smart"]
-}
+  }
 }

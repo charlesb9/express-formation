@@ -1,8 +1,9 @@
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 
-dotenv.config({ path: '.env' })
+dotenv.config({ path: '.env' });
 
 export default {
+  environment: process.env.NODE_ENV || 'development',
   port: process.env.PORT || '3000',
   secret: process.env.SECRET,
   db: {
@@ -12,4 +13,4 @@ export default {
     port: process.env.DB_PORT,
     database: process.env.DB_NAME,
   },
-}
+};
