@@ -10,7 +10,7 @@
     "prettier:write": "npx prettier --write .",
     "eslint:check": "npx eslint .",
     "eslint:write": "npx eslint --fix .",
-    "test": "NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules npx jest --watch --detectOpenHandles"
+    "test": "NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules npx jest --watchAll --detectOpenHandles"
   },
   "keywords": [],
   "author": "",
@@ -22,7 +22,8 @@
     "express": "^4.18.2",
     "express-jsdoc-swagger": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.8.0"
+    "mongoose": "^6.8.0",
+    "pm2": "^5.2.2"
   },
   "devDependencies": {
     "eslint": "^8.29.0",

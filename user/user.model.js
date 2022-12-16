@@ -1,5 +1,5 @@
-import { isEmail } from '../middlewares/email.validator.js';
-import { model, Schema } from 'mongoose';
+import { isEmail } from '../middlewares/email.validator.js'
+import { model, Schema } from 'mongoose'
 
 /**
  * Class User
@@ -16,6 +16,6 @@ const schema = new Schema({
     validate: [isEmail, 'Veuillez vérifier le format de votre adresse email'],
   },
   password: { type: String },
-});
+})
 
-export const User = model('User', schema);
+export const User = model('User', schema)

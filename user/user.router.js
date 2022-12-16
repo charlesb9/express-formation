@@ -1,7 +1,7 @@
-import { Router } from 'express';
-import { login, register } from './user.controller.js';
+import { Router } from 'express'
+import { login, register } from './user.controller.js'
 
-const router = Router();
+const router = Router()
 
 /**
  * POST /api/auth/login
@@ -10,7 +10,7 @@ const router = Router();
  * @param { User } request.body.required - User
  * @return { object } 200 - success response
  */
-router.post('/login', login);
+router.post('/login', login)
 
 /**
  * POST /api/auth/register
@@ -19,6 +19,6 @@ router.post('/login', login);
  * @param { User } request.body.required - User
  * @return { object } 201 - success response
  */
-router.post('/register', register);
+router.post('/register', register)
 
-export { router as routerAuth };
+export { router as routerAuth }
