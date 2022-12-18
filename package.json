@@ -3,24 +3,29 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "npx pm2 start server.js --watch --log-date-format \"YYYY-MM-DD HH:mm Z\"",
-    "stop": "npx pm2 stop server.js",
+    "start": "NODE_ENV=development node --watch index.js",
+    "start:monit": "NODE_ENV=development npx pm2 start index.js --watch --log-date-format \"YYYY-MM-DD HH:mm Z\" && npx pm2 monit",
+    "stop": "npx pm2 kill",
     "monit": "npx pm2 monit",
-    "prettier:check": "npx prettier --check .",
-    "prettier:write": "npx prettier --write .",
+    "prettier:check": "npx prettier --check ./src",
+    "prettier:write": "npx prettier --write ./src",
     "eslint:check": "npx eslint .",
     "eslint:write": "npx eslint --fix .",
-    "test": "NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules npx jest",
+    "test": "NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules npx jest --collectCoverage",
     "test:watch": "NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules npx jest --watchAll --detectOpenHandles",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "kill" : "sudo kill -9 $(sudo lsof -t -i:3000)"
   },
   "jest": {
     "testEnvironment": "node",
+    "verbose": true,
+    "runInBand" : true,
     "coveragePathIgnorePatterns": [
       "/node_modules/"
-    ]
+    ],
+    "modulePathIgnorePatterns": [".docker"]
   },
   "keywords": [],
   "author": "",

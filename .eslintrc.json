@@ -11,7 +11,7 @@
   },
   "rules": {
     "semi": ["off", "always"],
-    "quotes": ["error", "single"],
+    "quotes": ["error", "double"],
     "eqeqeq": ["warn", "smart"]
   }
 }

@@ -1,40 +1,37 @@
-import { Post } from './post.model.js'
+import { NotFoundException } from "../common/exceptions/index.js"
+import { Post } from "./post.model.js"
 
-const getAll = async (req, res) => {
+const getAll = async (req, res, next) => {
   try {
     const posts = await Post.find()
     res.status(200).json(posts)
   } catch (err) {
-    res.status(400).json({ message: err.message })
+    next(err)
   }
 }
 
-const getSingle = async (req, res) => {
+const getSingle = async (req, res, next) => {
   try {
     const { id } = req.params
-    console.log(id)
     const post = await Post.findOne({ _id: id })
-    if (!post) {
-      res.status(404).json(null)
-    }
+    if (!post) throw new NotFoundException()
     res.status(200).json(post)
   } catch (err) {
-    res.status(404).json({ message: err.message })
+    next(err)
   }
 }
 
-const create = async (req, res) => {
+const create = async (req, res, next) => {
   const { body } = req
   try {
-    console.log(body)
     const post = await Post.create(body)
     res.status(201).json(post)
   } catch (err) {
-    res.status(400).json({ message: err.message })
+    next(err)
   }
 }
 
-const update = async (req, res) => {
+const update = async (req, res, next) => {
   try {
     const {
       body: data,
@@ -43,19 +40,21 @@ const update = async (req, res) => {
     const post = await Post.findOneAndUpdate({ _id: id }, data, {
       returnOriginal: false,
     })
-    res.status(201).json(post)
+    if (!post) throw new NotFoundException()
+    res.status(200).json(post)
   } catch (err) {
-    res.status(400).json({ message: err.message })
+    next(err)
   }
 }
 
-const remove = async (req, res) => {
+const remove = async (req, res, next) => {
   try {
     const { id } = req.params
-    await Post.deleteOne({ _id: id })
-    res.status(201).json({ message: `le post ${id} est supprimé` })
+    let deleteResponse = await Post.remove({ _id: id })
+    if (!deleteResponse.deletedCount) throw new NotFoundException()
+    res.status(204).json()
   } catch (err) {
-    res.status(400).json(err.message)
+    next(err)
   }
 }
 

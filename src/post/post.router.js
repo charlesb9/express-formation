@@ -1,12 +1,12 @@
-import { Router } from 'express'
-import { auth } from '../middlewares/auth.middleware.js'
+import { Router } from "express"
+import { auth } from "../middlewares/auth.middleware.js"
 import {
   createPost,
   getPosts,
   getSinglePost,
   removePost,
   updatePost,
-} from './post.controller.js'
+} from "./post.controller.js"
 
 const router = Router()
 
@@ -16,7 +16,7 @@ const router = Router()
  * @tags Post
  * @return { object } 200 - success response
  */
-router.get('/', getPosts)
+router.get("/", getPosts)
 
 /**
  * POST /api/post
@@ -26,7 +26,7 @@ router.get('/', getPosts)
  * @return { object } 201 - succes reponse
  * @security BearerAuth
  */
-router.post('/', auth, createPost)
+router.post("/", auth, createPost)
 
 /**
  * GET /api/post/{id}
@@ -35,7 +35,7 @@ router.post('/', auth, createPost)
  * @param { string } id.path.required - id of Post
  * @return { object } 200 - success response
  */
-router.get('/:id', getSinglePost)
+router.get("/:id", getSinglePost)
 
 /**
  * PUT /api/post/{id}
@@ -46,7 +46,7 @@ router.get('/:id', getSinglePost)
  * @param { Post } request.body.required - Post
  * @return { object } 201 - success response
  */
-router.put('/:id', auth, updatePost)
+router.put("/:id", auth, updatePost)
 
 /**
  * DELETE /api/post/{id}
@@ -55,6 +55,6 @@ router.put('/:id', auth, updatePost)
  * @param { string } id.path.required - id of Post
  * @tags Post
  */
-router.delete('/:id', auth, removePost)
+router.delete("/:id", auth, removePost)
 
 export { router as routerPost }

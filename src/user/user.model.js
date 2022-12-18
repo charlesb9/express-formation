@@ -7,17 +7,20 @@ import { isEmail } from "../common/validators/email.validator.js"
  * @property {string} email.required - email
  * @property {string} password.required - password
  */
-const schema = new Schema({
-  email: {
-    type: String,
-    unique: true,
-    trim: true,
-    lowercase: true,
-    validate: [isEmail],
+const schema = new Schema(
+  {
+    email: {
+      type: String,
+      unique: true,
+      trim: true,
+      lowercase: true,
+      validate: [isEmail],
+    },
+    password: {
+      type: String,
+    },
   },
-  password: { 
-    type: String 
-  },
-}, { timestamps: true })
+  { timestamps: true }
+)
 
 export const User = model("User", schema)
